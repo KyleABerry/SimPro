@@ -1,5 +1,8 @@
 package com.example.reptar;
 
+/*	Pterodactyl Class
+ * 
+ */
 public class Pterodactyl extends Organism{
 	
 	public Pterodactyl(){

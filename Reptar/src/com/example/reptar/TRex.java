@@ -1,5 +1,8 @@
 package com.example.reptar;
 
+/*	TRex class
+ * 
+ */
 public class TRex extends Organism 
 	{
 	

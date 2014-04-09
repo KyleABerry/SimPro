@@ -1,11 +1,14 @@
 package com.example.reptar;
 
+/*	Organism Class
+ * 
+ */
+
 public class Organism {
 	
 	Boolean isAlive;
 	
 	int count;
-	
 	double growthRate;
 	double terrainAdaptability;
 	double threatLevel;

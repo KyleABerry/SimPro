@@ -1,5 +1,8 @@
 package com.example.reptar;
 
+/*	Stegosaurus Class
+ * 
+ */
 public class Stegosaurus extends Organism {
 
 	public Stegosaurus(){
