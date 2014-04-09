@@ -17,6 +17,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/*	Menu Form Class
+ * 
+ */
 public class MainActivity extends Activity {
 	
 	Boolean dataReady = false;
@@ -89,6 +92,8 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
+	
+	//runs getDate
     public void init()
     {
     	getData();

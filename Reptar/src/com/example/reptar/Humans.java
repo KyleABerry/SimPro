@@ -1,5 +1,9 @@
 package com.example.reptar;
 
+/*	Humans Class
+ * 
+ */
+
 public class Humans extends Organism {
 	
 	public Humans()
