@@ -103,7 +103,7 @@ public class Simulation extends Activity {
         
         //sets up Flood button
         Button floodB = (Button) findViewById(R.id.Flood);
-        meteorB.setOnClickListener(new OnClickListener(){
+        floodB.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				Intent intent = new Intent(Simulation.this, HighScore.class);
 				try
