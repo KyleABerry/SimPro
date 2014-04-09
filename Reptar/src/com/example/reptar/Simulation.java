@@ -13,6 +13,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+/*	Simulator Form Class
+ *
+ */
 public class Simulation extends Activity {
 	boolean isRunning = true;
 	Activity mActivity;
@@ -76,8 +79,8 @@ public class Simulation extends Activity {
 		plantCount.setText(plants.count + ""); 
 		plantPC.setText(String.format("%.2f",plants.growthRate) + "");  
 		
-		
-		 Button meteorB = (Button) findViewById(R.id.Meteor);
+		//sets up meteor button
+		Button meteorB = (Button) findViewById(R.id.Meteor);
         meteorB.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				Intent intent = new Intent(Simulation.this, HighScore.class);
@@ -97,6 +100,8 @@ public class Simulation extends Activity {
 				startActivity(intent);
 			}
 		});
+        
+        //sets up Flood button
         Button floodB = (Button) findViewById(R.id.Flood);
         meteorB.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
@@ -117,6 +122,8 @@ public class Simulation extends Activity {
 				startActivity(intent);
 			}
 		});
+        
+        //sets up end button
         Button endB = (Button) findViewById(R.id.Ending);
         endB.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
@@ -138,25 +145,25 @@ public class Simulation extends Activity {
 			}
 		});
         
-      
-    	
 		simulatorInstance.start();
 		
-		
-		
+		}
 	
-	}
-	
-	
+	/*	Simulator Logic Class
+	 * 	Controls the logic of the simulation as it runs.
+	 */
 	  public class Simulator extends Thread 
 	{
 		  Comparator<Event> comparator; //= new something;
-		   PriorityQueue<Event> queue; //= new PriorityQueue<Event>(10, comparator);
+		  PriorityQueue<Event> queue; //= new PriorityQueue<Event>(10, comparator);
 		  double TimeSec = System.currentTimeMillis();
-		   double TimeSecPlus = TimeSec+5000;
+		  double TimeSecPlus = TimeSec+5000;
 		  public Simulator()
 		  {
 			
+			/*	Logic of the comparator for the Priority Queue.
+			 * 
+			 */
 			comparator = new Comparator<Event>() {
 				public int compare(Event a, Event b) {
 					if (a.priority > b.priority)
@@ -169,6 +176,9 @@ public class Simulation extends Activity {
 			queue = new PriorityQueue<Event>(10, comparator);
 		}
 		  
+		  /*  Ends the Simulation
+		   * 
+		   */
 		void endSimulation()
 		{
 			Intent intent = new Intent(Simulation.this, HighScore.class);
@@ -187,10 +197,13 @@ public class Simulation extends Activity {
 			
 			startActivity(intent);
 		}
+		
+		// add a new event to the queue
 		void addEvent(Event theEvent) {
 			queue.add(theEvent);
 		}
 
+		//starts the simulation
 		public void run() {
 			// t.schedule(new addQueue(), 0, 1000*gameSpeed); //5sec
 			while (isRunning) {
@@ -291,6 +304,7 @@ public class Simulation extends Activity {
 						mActivity.runOnUiThread(new Runnable() {
 							public void run() {
 								
+								//updates text boxes
 								weeksT.setText(timeInWeeks+"");
 								hPC.setText(String.format("%.2f",humans.growthRate) + "");
 								hCount.setText(humans.count + "");
